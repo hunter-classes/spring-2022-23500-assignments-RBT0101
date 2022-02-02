@@ -1,10 +1,10 @@
 * Spring 2022 235 Assignments
 
-* Last name:
+* Last name: Lin
 
-* First name:
+* First name: Zhipeng
 
-* GitHub username:
+* GitHub username: RBT0101
 
 * Notes:
 
