@@ -2,7 +2,7 @@
 #include <vector>
 
 
-//Check for boundary errors;
+//Check for boundary errors for any given (row, col) based on the board dimensions
 bool outOfBounds(std::vector<std::vector<std::string> > board, int coordR, int coordC){
 	return ((coordR < 0 || coordR >= board.size()) || (coordC < 0 || coordC >= board[1].size()));
 }
@@ -13,7 +13,7 @@ bool invalid2DArray(std::vector<std::vector<int> > memo, int x, int y){
 	return false;
 }
 
-//Returns a board with padding
+//Returns a board with padding for a better visual output
 std::string padBoard(std::vector<std::vector<std::string> >& board, int maxSize){
 		std::string res = "";
 		for (auto i: board){
@@ -63,7 +63,7 @@ void find_knight_moves(std::vector<std::vector<std::string> >& board,  std::vect
 
 //Returns the board with all possible knight moves labeled in order
 std::string knight_moves(){
-	//Randing board size from [0, 5]
+	//Random board size from [0, 5]
 	srand(time(0));
 	int rdmBoardSize = rand() % 6;
 	int maxSize = rdmBoardSize * rdmBoardSize; //Padding will be used based on max integer 
@@ -71,19 +71,27 @@ std::string knight_moves(){
 	//Board represented in 2D vector of strings
 	std::vector<std::vector<std::string> > board(rdmBoardSize, std::vector<std::string> (rdmBoardSize, "."));
 	
+	//Starting cell (row, col) for the knight
 	int knightCoordR = 0;
 	int knightCoordC = 0;
 	
-	//Cannot Mod 0
+	//Cannot Mod 0 (results in an error)
 	if (rdmBoardSize != 0){
 		knightCoordR = rand() % rdmBoardSize;
 		knightCoordC = rand() % rdmBoardSize;
 	}
 	
+	/*
+		Since there can be many ways to reach base condition, we will need
+		two variables to update the board with the most optimized path whenever
+		a base condition is reached. To do this, we will evaluate the value of 
+		the counter variable in the base case: the higher the value,
+		the more steps that the knight can take
+	*/
 	int prev = 0;
 	int counter = 1;
 	
-	//Memoization 
+	//Memoization to keep track of the cell that have been visited so that the knight does not revist the cell again
 	std::vector<std::vector<int> > memo(rdmBoardSize, std::vector<int> (rdmBoardSize, 0));
 	
 	//Result	
@@ -97,7 +105,7 @@ std::string knight_moves(){
 	std::cout << "Starting column of the Knight: " << knightCoordC << std::endl;
 	std::cout << "Output:\n";
 		
-	//Output
+	//Output 
 	return padBoard(res, maxSize);
 }
 
