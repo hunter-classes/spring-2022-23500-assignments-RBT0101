@@ -10,9 +10,7 @@ int stepPerms(int n){
 
 int main()
 {
-	for (int s=0; s<=30; s++){
-		std::cout << "Input passed to stepPerms(int n): " << s << ",\t " << "Output: " << stepPerms(s) << std::endl;
-	}
+	std::cout << stepPerms(4) << std::endl;
 	return 0;
 }
 

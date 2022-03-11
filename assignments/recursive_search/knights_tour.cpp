@@ -3,12 +3,12 @@
 
 
 //Check for boundary errors;
-bool outOfBounds(std::vector<std::vector<std::string> > board, int coordR, int coordC){
+bool outOfBounds(std::vector<std::vector<std::string> >&board, int coordR, int coordC){
 	return ((coordR < 0 || coordR >= board.size()) || (coordC < 0 || coordC >= board[1].size()));
 }
 
 //Checks if 2D array element exists
-bool invalid2DArray(std::vector<std::vector<int> > memo, int x, int y){
+bool invalid2DArray(std::vector<std::vector<int> > &memo, int x, int y){
 	if (memo[x][y] == 1) return true;
 	return false;
 }
