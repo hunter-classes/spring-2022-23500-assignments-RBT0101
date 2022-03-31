@@ -13,7 +13,6 @@ bool isPathToFreedom(MazeCell* start, const std::string& moves) {
    
    for (int i=0; i<moves.length(); i++){
    	char move = moves[i];
-   	std::cout << "Current Move = " << move << std::endl;
    	if (move == 'N') start = start->north;
    	else if (move == 'S') start = start->south;
    	else if (move == 'E') start = start->east;
@@ -38,7 +37,6 @@ bool isPathToFreedom(MazeCell* start, const std::string& moves) {
 		}
    }
    
-   std::cout << "VALID PATH" << std::endl;
    for (int i=0; i<sizeof(itemsFound)/sizeof(itemsFound[0]); i++){
    	if (itemsFound[i] < 1) return false;
 	}
