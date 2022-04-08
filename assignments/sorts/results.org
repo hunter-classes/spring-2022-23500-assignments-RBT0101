@@ -1,0 +1,1 @@
+Merge sort appears to be faster than quick sort with larger vector sizes but less efficient when it comes to smaller vectors. The pivot value is also essential to increase the sorting speed for quick sort.
